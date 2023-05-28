@@ -53,13 +53,5 @@ export const App = () => {
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
 
-    // <div className={sharedStyles.section}>
-    //   <h1 className={sharedStyles.title}>Phonebook</h1>
-    //   <ContactForm />
-    //   {isLoading && !error && <b>Request in progress...</b>}
-    //   <h2 className={sharedStyles.title}>Contacts</h2>
-    //   <Filter></Filter>
-    //   <ContactList />
-    // </div>
   );
 };

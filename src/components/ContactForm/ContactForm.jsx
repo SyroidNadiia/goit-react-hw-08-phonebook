@@ -1,9 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik,  Field } from 'formik';
 import { addContact } from 'redux/contacts/operations';
 import { getContacts } from 'redux/contacts/selectors';
 import * as yup from 'yup';
+import { Button, TextField } from '@mui/material';
+import {
+  FormContainer,
+  FormLabel,
+  ErrorMessageContainer,
+} from '../RegisterForm/RegisterForm.styles';
 
 const validationSchema = yup.object({
   name: yup.string().required('Required'),
@@ -41,23 +47,38 @@ const ContactForm = ({ handleCloseModal }) => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form>
-          <label>
+        <FormContainer>
+          <FormLabel>
             Name
-            <Field type="text" name="name"  />
-            <ErrorMessage name="name" component="div" />
-          </label>
+            <Field
+              as={TextField}
+              type="text"
+              name="name"
+              sx={{ width: '300px' }}
+            />
+            <ErrorMessageContainer name="name" component="div" />
+          </FormLabel>
 
-          <label>
+          <FormLabel>
             Number
-            <Field type="tel" name="number"  />
-            <ErrorMessage name="number" component="div" />
-          </label>
+            <Field
+              as={TextField}
+              type="tel"
+              name="number"
+              sx={{ width: '300px' }}
+            />
+            <ErrorMessageContainer name="number" component="div" />
+          </FormLabel>
 
-          <button type="submit" disabled={isSubmitting}>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            disabled={isSubmitting}
+          >
             Add contact
-          </button>
-        </Form>
+          </Button>
+        </FormContainer>
       )}
     </Formik>
   );

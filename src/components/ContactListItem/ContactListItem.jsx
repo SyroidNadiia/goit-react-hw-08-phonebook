@@ -3,23 +3,31 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 import css from './ContactListItem.module.css';
+import ListItem from '@mui/material/ListItem';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
 
 const ContactListItem = ({ contact }) => {
   const dispatch = useDispatch();
 
-  const handelDelete = () => {
+  const handleDelete = () => {
     dispatch(deleteContact(contact.id));
   };
 
   return (
-    <li key={contact.id} className={css.item}>
-      {contact.name}
-      <button
-        onClick={handelDelete}
+    <div>
+      <ListItem
+        key={contact.id}
+        className={css.item}
+        secondaryAction={
+          <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
+            <DeleteIcon />
+          </IconButton>
+        }
       >
-        Delete
-      </button>
-    </li>
+        {contact.name}
+      </ListItem>
+    </div>
   );
 };
 

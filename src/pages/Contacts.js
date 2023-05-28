@@ -7,7 +7,12 @@ import ContactList from 'components/ContactList/ContactList';
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter/Filter';
 import css from '../components/ContactForm/ContactForm.module.css';
-import { StyledRegister } from 'components/sharedStyles.styles';
+import {
+  StyledRegister,
+  StyledIcon,
+  ButtonIcon,
+  StyledBox,
+} from 'components/sharedStyles.styles';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -32,19 +37,21 @@ export default function Contacts() {
         <title>Your contacts</title>
       </Helmet>
       <StyledRegister>
-      <button type="button" onClick={handleOpenModal}>
-        Add Contact
-      </button>
-      {isModalOpen && (
-        <div className={css.overlay}>
-          <div className={css['form-container']}>
-            <ContactForm handleCloseModal={handleCloseModal} />
-          </div>
-        </div>
-      )}
-      <div>{isLoading && 'Request in progress...'}</div>
-      <Filter />
-      <ContactList />
+        <StyledBox>
+          <ButtonIcon type="button" onClick={handleOpenModal}>
+            <StyledIcon />
+          </ButtonIcon>
+          {isModalOpen && (
+            <div className={css.overlay}>
+              <div className={css['form-container']}>
+                <ContactForm handleCloseModal={handleCloseModal} />
+              </div>
+            </div>
+          )}
+          <div>{isLoading && 'Request in progress...'}</div>
+          <Filter />
+        </StyledBox>
+        <ContactList />
       </StyledRegister>
     </>
   );

@@ -23,7 +23,7 @@ export const UserMenu = () => {
 
   return (
     <UserMenuContainer>
-      <UserName variant="body1">{user.name}</UserName>
+      <UserName variant="body1">Welcome, {user.name}</UserName>
       <Button variant="contained" onClick={handleLogout}>
         Logout
       </Button>

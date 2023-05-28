@@ -3,7 +3,6 @@ import Notiflix from 'notiflix';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { addContact } from 'redux/contacts/operations';
 import { getContacts } from 'redux/contacts/selectors';
-import sharedStyles from 'components/sharedStyles.module.css';
 import * as yup from 'yup';
 
 const validationSchema = yup.object({
@@ -20,7 +19,7 @@ const ContactForm = ({ handleCloseModal }) => {
     number: '',
   };
 
-   const handleSubmit = (values, { setSubmitting, resetForm }) => {
+  const handleSubmit = (values, { setSubmitting, resetForm }) => {
     const { name, number } = values;
     const newContact = { name, number };
 
@@ -35,45 +34,33 @@ const ContactForm = ({ handleCloseModal }) => {
     setSubmitting(false);
   };
 
-    return (
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting }) => (
-          <Form>
-            <label>
-              Name
-              <Field type="text" name="name" className={sharedStyles.input} />
-              <ErrorMessage
-                name="name"
-                component="div"
-                className={sharedStyles.error}
-              />
-            </label>
+  return (
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <label>
+            Name
+            <Field type="text" name="name"  />
+            <ErrorMessage name="name" component="div" />
+          </label>
 
-            <label>
-              Number
-              <Field type="tel" name="number" className={sharedStyles.input} />
-              <ErrorMessage
-                name="number"
-                component="div"
-                className={sharedStyles.error}
-              />
-            </label>
+          <label>
+            Number
+            <Field type="tel" name="number"  />
+            <ErrorMessage name="number" component="div" />
+          </label>
 
-            <button
-              type="submit"
-              className={sharedStyles.button}
-              disabled={isSubmitting}
-            >
-              Add contact
-            </button>
-          </Form>
-        )}
-      </Formik>
-    );
-  }
+          <button type="submit" disabled={isSubmitting}>
+            Add contact
+          </button>
+        </Form>
+      )}
+    </Formik>
+  );
+};
 
 export default ContactForm;

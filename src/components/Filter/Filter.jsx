@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/contacts/filtersSlice';
-import sharedStyles from 'components/sharedStyles.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -11,13 +10,12 @@ const Filter = () => {
   };
 
   return (
-    <label className={sharedStyles.label}>
+    <label >
       Find contacts by name
       <input
         type="text"
         name="filter"
         onChange={handelInputChange}
-        className={sharedStyles.input}
       ></input>
     </label>
   );

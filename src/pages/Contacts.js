@@ -7,6 +7,7 @@ import ContactList from 'components/ContactList/ContactList';
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter/Filter';
 import css from '../components/ContactForm/ContactForm.module.css';
+import { StyledRegister } from 'components/sharedStyles.styles';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
+      <StyledRegister>
       <button type="button" onClick={handleOpenModal}>
         Add Contact
       </button>
@@ -43,6 +45,7 @@ export default function Contacts() {
       <div>{isLoading && 'Request in progress...'}</div>
       <Filter />
       <ContactList />
+      </StyledRegister>
     </>
   );
 }

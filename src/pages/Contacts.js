@@ -6,6 +6,7 @@ import { fetchContacts } from 'redux/contacts/operations';
 import ContactList from 'components/ContactList/ContactList';
 import ContactForm from 'components/ContactForm/ContactForm';
 import Filter from 'components/Filter/Filter';
+import css from '../components/ContactForm/ContactForm.module.css';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -16,20 +17,29 @@ export default function Contacts() {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <button
-        type="button"
-        onClick={() => {
-          setIsModalOpen(true);
-        }}
-      >
+      <button type="button" onClick={handleOpenModal}>
         Add Contact
       </button>
-      {isModalOpen && <ContactForm onClose={() => setIsModalOpen(false)} />}
+      {isModalOpen && (
+        <div className={css.overlay}>
+          <div className={css['form-container']}>
+            <ContactForm handleCloseModal={handleCloseModal} />
+          </div>
+        </div>
+      )}
       <div>{isLoading && 'Request in progress...'}</div>
       <Filter />
       <ContactList />

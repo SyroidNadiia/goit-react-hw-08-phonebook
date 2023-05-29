@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[266],{1266:function(e,n,t){t.r(n),t.d(n,{default:function(){return r}});var o=t(890),a=t(3457),i=t(184),c=(0,a.Z)("div")({display:"flex",flexDirection:"column",alignItems:"center",gap:"20px",marginTop:"70px"});function r(){return(0,i.jsxs)(c,{children:[(0,i.jsx)(o.Z,{variant:"h2",children:"Welcome to the Contacts Book!"}),(0,i.jsx)(o.Z,{variant:"body1",children:"Manage your contacts easily and efficiently"})]})}}}]);
-//# sourceMappingURL=266.4994a4e5.chunk.js.map

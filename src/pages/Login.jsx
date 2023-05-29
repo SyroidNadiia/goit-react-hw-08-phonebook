@@ -1,17 +1,10 @@
 import { Helmet } from 'react-helmet';
 import { LoginForm } from 'components/LoginForm/LoginForm';
-import { styled } from '@mui/system';
 import { Typography } from '@mui/material';
+import { StyledLogin } from '../components/sharedStyles.styles';
 
-const StyledLogin = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  gap: '20px',
-  marginTop: '70px',
-});
 
-const Login = () => {
+export default function Login() {
   return (
     <>
       <Helmet>
@@ -25,4 +18,3 @@ const Login = () => {
   );
 };
 
-export default Login;

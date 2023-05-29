@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/contacts/filtersSlice';
 import { TextField } from '@mui/material';
 
-const Filter = () => {
+export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleInputChange = e => {
@@ -21,4 +21,3 @@ const Filter = () => {
   );
 };
 
-export default Filter;

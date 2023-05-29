@@ -3,7 +3,7 @@ import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 import { Typography } from '@mui/material';
 import { StyledRegister } from 'components/sharedStyles.styles';
 
-const Register = () => {
+export default function Register() {
   return (
     <>
       <Helmet>
@@ -17,4 +17,3 @@ const Register = () => {
   );
 };
 
-export default Register;

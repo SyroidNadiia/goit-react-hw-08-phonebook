@@ -1,22 +1,24 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
 import { Formik,  Field } from 'formik';
-import { addContact } from 'redux/contacts/operations';
-import { getContacts } from 'redux/contacts/selectors';
 import * as yup from 'yup';
 import { Button, TextField } from '@mui/material';
+
+import { addContact } from 'redux/contacts/operations';
+import { getContacts } from 'redux/contacts/selectors';
 import {
   FormContainer,
   FormLabel,
   ErrorMessageContainer,
 } from '../RegisterForm/RegisterForm.styles';
 
+
 const validationSchema = yup.object({
   name: yup.string().required('Required'),
   number: yup.number().required('Required'),
 });
 
-const ContactForm = ({ handleCloseModal }) => {
+export const ContactForm = ({ handleCloseModal }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
 
@@ -47,7 +49,7 @@ const ContactForm = ({ handleCloseModal }) => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <FormContainer>
+        <FormContainer >
           <FormLabel>
             Name
             <Field
@@ -84,4 +86,3 @@ const ContactForm = ({ handleCloseModal }) => {
   );
 };
 
-export default ContactForm;

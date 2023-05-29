@@ -21,7 +21,7 @@ export const register = createAsyncThunk(
       return data;
     } catch (error) {
       if (error.response && error.response.status === 400) {
-         Notiflix.Notify.failure('Помилка: некоректні дані для реєстрації');
+        Notiflix.Notify.failure('Помилка: некоректні дані для реєстрації');
       } else {
         return thunkApi.rejectWithValue(error.message);
       }

@@ -1,10 +1,9 @@
+import { AppBar as MuiAppBar, Container, Toolbar, Box } from '@mui/material';
+import { useAuth } from 'hooks';
+
 import { Navigation } from '../Navigation/Navigation';
 import { UserMenu } from '../UserMenu/UserMenu';
 import { AuthNav } from '../AuthNav/AuthNav';
-import { useAuth } from 'hooks';
-import { AppBar as MuiAppBar, Container, Toolbar, Box } from '@mui/material';
-
-
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();

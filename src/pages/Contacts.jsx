@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import { Dialog, DialogContent, DialogActions } from '@mui/material';
 import { getIsLoading } from 'redux/contacts/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
-import ContactList from 'components/ContactList/ContactList';
-import ContactForm from 'components/ContactForm/ContactForm';
-import Filter from 'components/Filter/Filter';
-import css from '../components/ContactForm/ContactForm.module.css';
+import {ContactList} from 'components/ContactList/ContactList';
+import {ContactForm} from 'components/ContactForm/ContactForm';
+import {Filter} from 'components/Filter/Filter';
 import {
   StyledRegister,
   StyledIcon,
   ButtonIcon,
   StyledBox,
+  ModalTitle,
+  ModalCloseIcon,
 } from 'components/sharedStyles.styles';
 
 export default function Contacts() {
@@ -41,13 +43,15 @@ export default function Contacts() {
           <ButtonIcon type="button" onClick={handleOpenModal}>
             <StyledIcon />
           </ButtonIcon>
-          {isModalOpen && (
-            <div className={css.overlay}>
-              <div className={css['form-container']}>
-                <ContactForm handleCloseModal={handleCloseModal} />
-              </div>
-            </div>
-          )}
+          <Dialog open={isModalOpen} onClose={handleCloseModal}>
+            <ModalTitle>Add Contact</ModalTitle>
+            <DialogContent>
+              <ContactForm handleCloseModal={handleCloseModal} />
+            </DialogContent>
+            <DialogActions>
+              <ModalCloseIcon onClick={handleCloseModal} color="primary" />
+            </DialogActions>
+          </Dialog>
           <div>{isLoading && 'Request in progress...'}</div>
           <Filter />
         </StyledBox>

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/operations';
 import { Formik, Field } from 'formik';
 import { Button, TextField } from '@mui/material';
+import { logIn } from 'redux/auth/operations';
 import {
   FormContainer,
   FormLabel,

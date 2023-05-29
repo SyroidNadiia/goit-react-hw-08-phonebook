@@ -1,13 +1,6 @@
 import { Typography } from '@mui/material';
-import { styled } from '@mui/system';
-
-const StyledHome = styled('div')({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  gap: '20px',
-  marginTop: '70px',
-});
+import { StyledHome, BookImage } from '../components/sharedStyles.styles';
+import book from '../images/preview.png';
 
 export default function Home() {
   return (
@@ -16,6 +9,7 @@ export default function Home() {
       <Typography variant="body1">
         Manage your contacts easily and efficiently
       </Typography>
+      <BookImage src={book} alt="Contacts Book" />
     </StyledHome>
   );
 }

@@ -1,17 +1,9 @@
-import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
+import { Button, } from '@mui/material';
+import { useAuth } from 'hooks';
 import { logOut } from 'redux/auth/operations';
-import { Button, Box, Typography } from '@mui/material';
-import styled from 'styled-components';
-
-const UserMenuContainer = styled(Box)`
-  display: flex;
-  align-items: center;
-`;
-
-const UserName = styled(Typography)`
-  margin-right: 10px;
-`;
+import { Typography } from '@mui/material';
+import { UserMenuContainer } from './UserMenu.styles';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -23,7 +15,7 @@ export const UserMenu = () => {
 
   return (
     <UserMenuContainer>
-      <UserName variant="body1">Welcome, {user.name}</UserName>
+      <Typography variant="body1">Welcome, {user.name}</Typography>
       <Button variant="contained" onClick={handleLogout}>
         Logout
       </Button>
